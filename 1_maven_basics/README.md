@@ -91,7 +91,16 @@ package: cz.kb.bd.base
  Unfortunately there is an error in this simple archetype - remove line 70 `<arg>-make:transitive</arg>`
  
  
+
+## Build the project with Maven
+_About Maven build lifecycle:_ https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+Maven goals:
+  * _validate_ - validate the project is correct and all necessary information is available
+  * _compile_ - compile the source code of the project
+  * _test_ - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+  * _package_ - take the compiled code and package it in its distributable format, such as a JAR.
+  * _verify_ - run any checks on results of integration tests to ensure quality criteria are met
+  * _install_ - install the package into the local repository, for use as a dependency in other projects locally
+  * _deploy_ - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
  
- ## Compile the project
- Now the project
 
