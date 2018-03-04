@@ -7,6 +7,7 @@ We will use Maven in command line environment for educational purposes. You can 
 
 _Install JDK_
 https://en.wikipedia.org/wiki/Java_Development_Kit
+
 Maven requires JDK, if you only have JRE, please install JDK too.
 During the course we will use JDK 8 161 - if possible, plese use the same version.
 Download link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -68,7 +69,7 @@ Let`s name our version. Default is OK so hit enter
 ```
 Define value for property 'package' cz.kb.bd:
 ```
-Let`s name our package - for this excercise will will use single package, but let`s name it anyway `cz.kb.bd.base`
+Name our package - for this excercise will will use single package, but let`s name it anyway `cz.kb.bd.base`
 ```
 Confirm properties configuration:
 groupId: cz.kb.bd
