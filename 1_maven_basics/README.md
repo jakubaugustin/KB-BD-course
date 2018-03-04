@@ -102,5 +102,17 @@ Maven goals:
   * _verify_ - run any checks on results of integration tests to ensure quality criteria are met
   * _install_ - install the package into the local repository, for use as a dependency in other projects locally
   * _deploy_ - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+  
+  
+Try goals one by one.
+Test goal will probably fail.
+Change dependencies in POM: On line 42 cange:
+```
+      <artifactId>specs2-core_${scala.compat.version}</artifactId>
+```
+to
+```
+      <artifactId>specs2-junit_${scala.compat.version}</artifactId>
+```
  
 
