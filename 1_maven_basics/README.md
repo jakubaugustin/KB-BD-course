@@ -55,8 +55,9 @@ Lets use latest version. Write 3 and hit enter.
 Define value for property 'groupId':
 ```
 Pick you group ID
-https://maven.apache.org/guides/mini/guide-naming-conventions.html
-According to naming conventions use `cz.kb.bd` and hit enter
+According to naming conventions use `cz.kb.bd` and hit enter. <br />
+
+_About naming in Maven_: https://maven.apache.org/guides/mini/guide-naming-conventions.html
 ```
 Define value for property 'artifactId':
 ```
