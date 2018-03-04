@@ -5,7 +5,7 @@ We will use Maven in command line environment for educational purposes. You can 
 
 ## Preconditions - Maven Installation:
 
-_Install JDK_
+_Install JDK_<br/>
 https://en.wikipedia.org/wiki/Java_Development_Kit
 
 Maven requires JDK, if you only have JRE, please install JDK too.
@@ -13,14 +13,15 @@ During the course we will use JDK 8 161 - if possible, plese use the same versio
 Download link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 JAVA_HOME for Windows by default should be `C:\Program Files\Java\jre1.8.0_161`
 
-_Install Maven_
+_Install Maven_<br/>
 https://en.wikipedia.org/wiki/Apache_Maven
+
 During the course we will use Maven 3.5.2 - if possible, plese use the same version.
 Download Maven binaries from: http://mirror.hosting90.cz/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip
 Extract files and add location to PATH (this bin directory of course)
 
 
-_Test it_
+_Test it_<br/>
 Try running `mvn -version` from command line
 You should see a message similar to this:
 ```
