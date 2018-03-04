@@ -5,23 +5,21 @@ We will use Maven in command line environment for educational purposes. You can 
 
 ## Preconditions - Maven Installation:
 
-_Install JDK_<br/>
-https://en.wikipedia.org/wiki/Java_Development_Kit
-
+### Install JDK
+https://en.wikipedia.org/wiki/Java_Development_Kit<br/>
 Maven requires JDK, if you only have JRE, please install JDK too.
 During the course we will use JDK 8 161 - if possible, plese use the same version.
 Download link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 JAVA_HOME for Windows by default should be `C:\Program Files\Java\jre1.8.0_161`
 
-_Install Maven_<br/>
-https://en.wikipedia.org/wiki/Apache_Maven
-
+### Install Maven
+https://en.wikipedia.org/wiki/Apache_Maven<br/>
 During the course we will use Maven 3.5.2 - if possible, plese use the same version.
 Download Maven binaries from: http://mirror.hosting90.cz/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip
 Extract files and add location to PATH (this bin directory of course)
 
 
-_Test it_<br/>
+### Test it
 Try running `mvn -version` from command line
 You should see a message similar to this:
 ```
@@ -36,8 +34,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 
 ## Create first Scala project
-https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
-
+https://maven.apache.org/guides/introduction/introduction-to-archetypes.html<br/>
 Open command line and write `mvn archetype:generate` and hit enter
 You will see many archetypes to choose from
 ```
