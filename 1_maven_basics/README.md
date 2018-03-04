@@ -10,12 +10,14 @@ https://en.wikipedia.org/wiki/Java_Development_Kit<br/>
 Maven requires JDK, if you only have JRE, please install JDK too.
 During the course we will use JDK 8 161 - if possible, plese use the same version.
 JAVA_HOME for Windows by default should be `C:\Program Files\Java\jre1.8.0_161`<br />
+
 Download link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 ### Install Maven
 https://en.wikipedia.org/wiki/Apache_Maven<br/>
 During the course we will use Maven 3.5.2 - if possible, plese use the same version.
 Extract files and add location to PATH (this bin directory of course)<br />
+
 Download Maven binaries from: http://mirror.hosting90.cz/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip
 
 ### Test it
