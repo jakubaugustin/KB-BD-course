@@ -105,7 +105,7 @@ Maven goals:
   
   
 Try goals one by one.
-Test goal will probably fail.
+Test goal will probably fail.__
 Change dependencies in POM: On line 42 cange:
 ```
       <artifactId>specs2-core_${scala.compat.version}</artifactId>
