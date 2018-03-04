@@ -7,7 +7,7 @@ We will use Maven in command line environment for educational purposes. You can 
 ## Preconditions - Maven Installation:
 
 ### Install JDK
-https://en.wikipedia.org/wiki/Java_Development_Kit<br/>
+_About JDK:_ https://en.wikipedia.org/wiki/Java_Development_Kit<br/>
 Maven requires JDK, if you only have JRE, please install JDK too.
 During the course we will use JDK 8 161 - if possible, plese use the same version.
 JAVA_HOME for Windows by default should be `C:\Program Files\Java\jre1.8.0_161`<br />
@@ -34,7 +34,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 
 ## Create first Scala project
-_About Maven archetypes:_` https://maven.apache.org/guides/introduction/introduction-to-archetypes.html<br/>
+_About Maven archetypes:_ https://maven.apache.org/guides/introduction/introduction-to-archetypes.html<br/>
 
 Open command line and write `mvn archetype:generate` and hit enter
 You will see many archetypes to choose from
@@ -54,7 +54,7 @@ Lets use latest version. Write 3 and hit enter.
 ```
 Define value for property 'groupId':
 ```
-Let`s pick you group ID
+Pick you group ID
 https://maven.apache.org/guides/mini/guide-naming-conventions.html
 According to naming conventions use `cz.kb.bd` and hit enter
 ```
@@ -64,7 +64,7 @@ Use `SampleApp` and hit enter
 ```
 Define value for property 'version' 1.0-SNAPSHOT:
 ```
-Let`s name our version. Default is OK so hit enter
+Name our version. Default is OK so hit enter
 ```
 Define value for property 'package' cz.kb.bd:
 ```
