@@ -1,4 +1,5 @@
 # Maven Basics
+_What is Maven:_ https://en.wikipedia.org/wiki/Apache_Maven<br/>
 
 In this excersice we will create our first Maven Scala project.
 We will use Maven in command line environment for educational purposes. You can use Maven from your favourite IDE if you are  already familiar with it.
@@ -14,7 +15,6 @@ JAVA_HOME for Windows by default should be `C:\Program Files\Java\jre1.8.0_161`<
 _Download link:_ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 ### Install Maven
-https://en.wikipedia.org/wiki/Apache_Maven<br/>
 During the course we will use Maven 3.5.2 - if possible, plese use the same version.
 Extract files and add location to PATH (this bin directory of course)<br />
 
@@ -33,9 +33,9 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 ```
 
 
-
 ## Create first Scala project
-https://maven.apache.org/guides/introduction/introduction-to-archetypes.html<br/>
+_About Maven archetypes:_` https://maven.apache.org/guides/introduction/introduction-to-archetypes.html<br/>
+
 Open command line and write `mvn archetype:generate` and hit enter
 You will see many archetypes to choose from
 ```
