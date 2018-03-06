@@ -7,6 +7,10 @@ import org.apache.log4j.{Logger, Level, BasicConfigurator}
  */
 object App {
   
+  private[this] val START_YEAR : Int = 2016
+  private[this] val END_YEAR : Int = 2019
+  private[this] val START_MONTH : Int = 1
+  private[this] val END_MONTH : Int = 13
   private[this] val DOWNLOAD_PATH_PREFIX : String = "data/"
   
   case class BulkDate(year : Int, month : Int)
@@ -21,7 +25,7 @@ object App {
   
   val processDownload = (x : BulkDate) => new ContractBulkLink(x.year, x.month, DOWNLOAD_PATH_PREFIX).download()
   
-  (for(year <- 2016 until 2019; month <- 1 until 13) yield BulkDate(year, month))
+  (for(year <- START_YEAR until END_YEAR; month <- START_MONTH until END_MONTH) yield BulkDate(year, month))
 	  .par
 	  .foreach(processDownload)
   sys.exit
