@@ -62,22 +62,28 @@ val dataTuple : Seq[(Int, Int)] = for(year <- START_YEAR until END_YEAR; month <
 
 ### Assignment 1: Parallelize data to RDD[MyDate] and write it`s content using println
 ```scala
-
+val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+dataRDD.foreach(println)
 ```
 
 ### Assignment 2: Parallelize data to RDD[MyDate] convert it to Dataframe and use show method
 ```scala
-
+val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+val dataDF : Dataset[Row] = dataRDD.toDF()
+dataDF.show()
 ```
 
 ### Assignment 3: Parallelize dataTuple to RDD[(Int, Int)] and write it`s content using println
 ```scala
-
+val dataRDD : RDD[(Int, Int)] = spark.sparkContext.parallelize(dataTuple)
+dataRDD.foreach(println)
 ```
 
 ### Assignment 4: Parallelize dataTuple to RDD[(Int, Int)] convert it to Dataframe and use show method
 ```scala
-
+val dataRDD : RDD[(Int, Int)] = spark.sparkContext.parallelize(dataTuple)
+val dataDF : Dataset[Row] = dataRDD.toDF("year", "month")
+dataDF.show()
 ```
 
 
