@@ -10,5 +10,8 @@ New excercises will be added during the couse.
 Current list:
   * 1_maven_basics
   * 2_scala_basics
-  * 3_development_best_practices
-  * 4_data_downloader_app
+  * 3_spark_basics
+  
+Next phases:
+  * 4_contract_registry_app
+  * ...

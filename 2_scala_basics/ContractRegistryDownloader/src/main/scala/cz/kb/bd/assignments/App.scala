@@ -14,32 +14,32 @@ object App {
 	private[this] val END_MONTH : Int = 13
 	//Logger
 	private[this] val log : Logger = Logger.getRootLogger
+	log.setLevel(Level.INFO)
 	
 	case class MyDate(year : Int, month : Int)
 
 	def main(args : Array[String]) {
-	  //Development workaround
-	  BasicConfigurator.configure()
-	  
-	  log.setLevel(Level.INFO)
-	  log.info(s"Going to launch assignment: ${args(0)}")
-	  try
-	  {
-		  args(0) match{
-			  case "1" => assignment1
-			  case "2" => assignment2
-			  case "3" => assignment3
-			  case "4" => assignment4
-			  case "5" => assignment5
-			  case "6" => assignment6
-			  case _ => throw new IllegalArgumentException(s"${args(0)} was not recognized as valid assignment code.")
-		  }
-	  }catch{
-		  case e : ArrayIndexOutOfBoundsException => log.error("No assignment specified?")
-		  case e : IllegalArgumentException => log.error(e.getMessage)
-		  case _ : Throwable => log.error("Unknown error uccured")
-	  }
-	  sys.exit
+		if (args.length == 0) throw new IllegalStateException("Please specify assignment number as an argument.")
+		val assignmentNumber : Int = Try(args(0).toInt).getOrElse(0) 
+		require(assignmentNumber > 0, s"Assignment number:${args(0)} either can`t be converted to numeric value or is invalid")
+		log.info(s"Going to launch assignment: ${assignmentNumber}")
+		try
+		{
+			assignmentNumber match{
+				case 1 => assignment1
+				case 2 => assignment2
+				case 3 => assignment3
+				case 4 => assignment4
+				case 5 => assignment5
+				case 6 => assignment6
+				case _ => throw new IllegalArgumentException(s"${assignmentNumber} was not recognized as valid assignment code.")
+			}
+		}catch{
+			case e : IllegalArgumentException => log.error(e.getMessage)
+			case _ : Throwable => log.error("Unknown error uccured")
+		}
+		
+		sys.exit
 	}
 
 	private def assignment1 : Unit = {
