@@ -119,5 +119,11 @@ To run the program use:
 ```
 mvn exec:java -Dexec.mainClass=cz.kb.bd.base.App
 ```
+
+To provide arguments to program use:
+```
+mvn exec:java -Dexec.mainClass=cz.kb.bd.base.App -Dexec.arguments=1
+```
+	
  
 
