@@ -114,5 +114,10 @@ to
 ```
       <artifactId>specs2-junit_${scala.compat.version}</artifactId>
 ```
+
+To run the program use:
+```
+mvn exec:java -Dexec.mainClass=cz.kb.bd.base.App
+```
  
 
