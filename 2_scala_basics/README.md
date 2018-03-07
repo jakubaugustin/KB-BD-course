@@ -82,3 +82,17 @@ case class MyDate(year : Int, month : Int)
 	.foreach((x : MyDate) => println(s"year: ${x.year}, month: ${x.month}"))
 ```
 
+## First real program
+
+### Scaladoc
+
+Scaladoc is a documentation system that lives in the comments of Scala source code and is related to the code structure within which it is written. 
+<br />
+Learn more: https://docs.scala-lang.org/overviews/scaladoc/for-library-authors.html
+<br />
+To generate Scaladoc via maven use:
+```
+mvn site
+mvn scala:doc
+```
+Scaladoc will be created to: `<PROJECT_ROOT>/target/site/scaladocs/`

@@ -86,4 +86,38 @@ val dataDF : Dataset[Row] = dataRDD.toDF("year", "month")
 dataDF.show()
 ```
 
+### Assignment 5: Get count from RDD
+```scala
+val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+println(s"This RDD contains ${dataRDD.count()} records")
+```
+
+### Assignment 6: Get count from Dataframe
+```scala
+val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+val dataDF : Dataset[Row] = dataRDD.toDF()
+println(s"This DF contains ${dataDF.count()} records")
+```
+
+### Assignment 7: Get count of months in years from Dataframe using DF methods
+```scala
+val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+val dataDF : Dataset[Row] = dataRDD.toDF()
+dataDF.groupBy(col("year")).count().show()
+```
+
+### Assignment 8: Get count of months in years from Dataframe using SQL
+```scala
+val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+val dataDF : Dataset[Row] = dataRDD.toDF()
+dataDF.createOrReplaceTempView("data")
+spark.sql("""
+	select 
+		year
+		, count(*) as months_count
+	from data 
+	group by year
+""")
+.show()
+```
 

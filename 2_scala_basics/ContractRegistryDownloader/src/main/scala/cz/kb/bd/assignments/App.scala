@@ -1,6 +1,7 @@
 package cz.kb.bd.assignments
 
 import org.apache.log4j.{Logger, Level, BasicConfigurator}
+import scala.util.Try
 
 /**
  * @author Jakub.Augustin

@@ -5,19 +5,25 @@ import java.io.File
 import java.net.URL
 import org.apache.log4j.{LogManager, Logger}
 
+/** This object enable URL content to be downloaded. */
 object FileDownloader{
-		
-	/**
+
+	private[this] val log : Logger = LogManager.getRootLogger
+	
+	/** Download source document to target
 	*
 	* @param source Source URL
 	* @param target Target on local FS and or HDFS
 	*/
-	private[this] val log : Logger = LogManager.getRootLogger
-	
 	def apply(source : String, target : String) : Unit = {
 		downloadFile(source, target)
 	}
 	
+	/** Download source document to target
+	*
+	* @param source Source URL
+	* @param target Target on local FS and or HDFS
+	*/
 	def downloadFile(source : String, target : String) : Unit = {
 		require(source != "", "source can`t be empty")
 		require(target != "", "target can`t be empty")

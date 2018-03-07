@@ -1,6 +1,7 @@
 package cz.kb.bd.base
 
 import org.apache.spark.sql.{SparkSession, Dataset, Row}
+import org.apache.spark.sql.functions.col
 import org.apache.spark.rdd.RDD
 import org.apache.log4j.{Logger, Level, BasicConfigurator}
 import scala.util.Try
@@ -41,8 +42,10 @@ object App {
 				case 2 => assignment2
 				case 3 => assignment3
 				case 4 => assignment4
-				/*case 5 => assignment5
-				case 6 => assignment6*/
+				case 5 => assignment5
+				case 6 => assignment6
+				case 7 => assignment7
+				case 8 => assignment8
 				case _ => throw new IllegalArgumentException(s"${assignmentNumber} was not recognized as valid assignment code.")
 			}
 		}catch{
@@ -75,5 +78,35 @@ object App {
 		val dataDF : Dataset[Row] = dataRDD.toDF("year", "month")
 		dataDF.show()
 	}
+	
+	def assignment5 : Unit = {
+		val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+		println(s"This RDD contains ${dataRDD.count()} records")
+	}
 
+	def assignment6 : Unit = {
+		val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+		val dataDF : Dataset[Row] = dataRDD.toDF()
+		println(s"This DF contains ${dataDF.count()} records")
+	}
+	
+	def assignment7 : Unit = {
+		val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+		val dataDF : Dataset[Row] = dataRDD.toDF()
+		dataDF.groupBy(col("year")).count().show()
+	}
+	
+	def assignment8 : Unit = {
+		val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
+		val dataDF : Dataset[Row] = dataRDD.toDF()
+		dataDF.createOrReplaceTempView("data")
+		spark.sql("""
+			select 
+				year
+				, count(*) as months_count
+			from data 
+			group by year
+		""")
+		.show()
+	}
 }
