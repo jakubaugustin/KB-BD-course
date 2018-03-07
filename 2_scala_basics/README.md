@@ -96,3 +96,7 @@ mvn site
 mvn scala:doc
 ```
 Scaladoc will be created to: `<PROJECT_ROOT>/target/site/scaladocs/`
+
+### Lets write real contract registry downloader
+
+Explore code in this subproject....
