@@ -64,7 +64,8 @@ object App {
 	
 	def assignment2 : Unit = {
 		val dataRDD : RDD[MyDate] = spark.sparkContext.parallelize(data)
-		val dataDF : Dataset[Row] = dataRDD.toDF()
+		val dataDF : Dataset[Row] = dataRDD.toDF().repartition(100)
+		dataDF.rdd.partitions.foreach(println)
 		dataDF.show()
 	}
 	
