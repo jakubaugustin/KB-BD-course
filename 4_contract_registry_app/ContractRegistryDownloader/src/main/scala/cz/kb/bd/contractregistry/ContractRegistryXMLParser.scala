@@ -6,11 +6,19 @@ import org.apache.spark.sql.{Column, Dataset, Row}
 import org.apache.spark.sql.functions.{explode, udf, col}
 import org.apache.spark.sql.types.{StructType}
 
-
+/**
+ * Parses XML from Contract Registry containing it`s metadata to "table like" data in 3rd normal form
+ * @param spark Spark session object
+ * @param xmlSource mask containing files to be parsed. This can be file reference, directory or mask with wildcard.
+ * @param charset charset of XML files 
+ */
 class ContractRegistryXMLParser (val spark : SparkSession, val xmlSource : String, val charset : String = "ASCII"){
 
 	require(xmlSource != "", "xmlSource can`t be empty")
 	
+	/**
+	 * Perform parsing itself
+	 */
 	def parse () : ContractRegistryData = {
 		import spark.implicits._
 		
@@ -22,11 +30,12 @@ class ContractRegistryXMLParser (val spark : SparkSession, val xmlSource : Strin
 			.option("charset", charset)
 			.option("ignoreSurroundingSpaces", true)
 			.load(xmlSource)
+			//.repartition(100)
+			
+		rawData.cache()
 
 		val flatData = rawData
 			.select(flattenSchema(rawData.schema):_*)
-			
-		flatData.cache()
 		
 		val attachmentsDataTmp = flatData
 			.drop("casZverejneni")
@@ -93,8 +102,12 @@ class ContractRegistryXMLParser (val spark : SparkSession, val xmlSource : Strin
 
 	}
 	
-	
-	def flattenSchema(schema: StructType, prefix: String = null) : Array[Column] = {
+	/**
+	 * Flattens schema containing non-scalar types
+	 * @param schema Original schema to be flattened
+	 * @param prefix This will be prepended to column names
+	 */
+	private def flattenSchema(schema: StructType, prefix: String = null) : Array[Column] = {
 		schema.fields.flatMap(f => {
 			val colName = if (prefix == null) f.name else (prefix + "." + f.name)
 
