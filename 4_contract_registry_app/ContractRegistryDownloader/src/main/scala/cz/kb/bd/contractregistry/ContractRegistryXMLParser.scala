@@ -99,7 +99,6 @@ class ContractRegistryXMLParser (val spark : SparkSession, val xmlSource : Strin
 			.drop("_corrupt_record")
 			
 		new ContractRegistryData(spark, registryData, attachmentsData, contractPartyData)	
-
 	}
 	
 	/**
@@ -107,9 +106,9 @@ class ContractRegistryXMLParser (val spark : SparkSession, val xmlSource : Strin
 	 * @param schema Original schema to be flattened
 	 * @param prefix This will be prepended to column names
 	 */
-	private def flattenSchema(schema: StructType, prefix: String = null) : Array[Column] = {
+	private def flattenSchema(schema: StructType, prefix: String = "") : Array[Column] = {
 		schema.fields.flatMap(f => {
-			val colName = if (prefix == null) f.name else (prefix + "." + f.name)
+			val colName = if (prefix == "") f.name else (prefix + "." + f.name)
 
 			f.dataType match {
 				case st: StructType => flattenSchema(st, colName)

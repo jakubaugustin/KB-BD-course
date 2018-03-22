@@ -20,9 +20,9 @@ object ConfigParser {
    * @param argumentName name of argument to be returned
    * @param validationRegex optional Regex to validate argument value
    */
-  def getArgumentStringValue(argumentName: String, validationRegex: String = null): String = {
+  def getArgumentStringValue(argumentName: String, validationRegex: String = ""): String = {
     val argValue: String = Properties.envOrElse(argumentName.toUpperCase.replaceAll("""\.""", "_"), config.getString(argumentName))
-    if (validationRegex != null) {
+    if (validationRegex != "") {
       if (!argValue.matches(validationRegex))
         throw new IllegalStateException(s"Argument validation failed. Argument ${argumentName} with value: ${argValue} did not meet regex: ${validationRegex}")
     }
