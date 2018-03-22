@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config version="11.1.0.ga-2017-05-04">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (attachmentRecord) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="attachmentRecord">
+		<properties writeHeader="true" fileName="../data/out/attachmentRecord.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="true" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns/>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="432,216,-1,-1"/>
+	</step>
+
+
+
+<!-- (contractPartyRecord) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="contractPartyRecord">
+		<properties writeHeader="true" fileName="../data/out/contractPartyRecord.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="true" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns/>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="240,216,-1,-1"/>
+	</step>
+
+
+
+<!-- (registr_xml_parse) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.xml.reader.XmlReader" disabled="false" id="registr_xml_parse">
+		<properties fileName="../data/in/sample_in.xml">
+			<dataFormatParameters falseValue="false" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+			<namespaces>
+				<prefixNamespacePair prefix="nm" namespace="http://portal.gov.cz/rejstriky/ISRS/1.2/"/>
+			</namespaces>
+			<recordsOutputs>
+				<recordsOutput rowsRootXPath="nm:dump/nm:zaznam" out="reg">
+					<attributes>
+						<attribute xpath="nm:identifikator/nm:idSmlouvy" xmlValue="false" name="idSmlouvy" type="INTEGER"/>
+						<attribute xpath="nm:identifikator/nm:idVerze" xmlValue="false" name="idVerze" type="INTEGER"/>
+						<attribute xpath="nm:odkaz" xmlValue="false" name="odkaz" type="STRING"/>
+						<attribute xpath="nm:casZverejneni" xmlValue="false" name="casZverejneni" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:subjekt/nm:datovaSchranka" xmlValue="false" name="subjekt_datovaSchranka" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:subjekt/nm:nazev" xmlValue="false" name="subjekt_nazev" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:subjekt/nm:ico" xmlValue="false" name="subjekt_ico" type="INTEGER"/>
+						<attribute xpath="nm:smlouva/nm:subjekt/nm:adresa" xmlValue="false" name="subjekt_adresa" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:subjekt/nm:platce" xmlValue="false" name="subjekt_platce" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:subjekt/nm:utvar" xmlValue="false" name="subjekt_utvar" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:predmet" xmlValue="false" name="predmet" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:cisloSmlouvy" xmlValue="false" name="cisloSmlouvy" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:datumUzavreni" xmlValue="false" name="datumUzavreni" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:schvalil" xmlValue="false" name="schvalil" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:schvalil/nm:navazanyZaznam" xmlValue="false" name="navazanyZaznam" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:hodnotaBezDph" xmlValue="false" name="hodnotaBezDph" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:hodnotaVcetneDph" xmlValue="false" name="hodnotaVcetneDph" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:ciziMena/nm:hodnota" xmlValue="false" name="cizi_mena_hodnota" type="STRING"/>
+						<attribute xpath="nm:smlouva/nm:ciziMena/nm:mena" xmlValue="false" name="cizi_mena_mena" type="STRING"/>
+						<attribute xpath="nm:platnyZaznam" xmlValue="false" name="platnyZaznam" type="INTEGER"/>
+					</attributes>
+					<recordsOutputs>
+						<recordsOutput rowsRootXPath="nm:smlouva/nm:smluvniStrana" out="cParty">
+							<attributes>
+								<attribute xpath="../../nm:identifikator/nm:idSmlouvy" xmlValue="false" name="idSmlouvy" type="INTEGER"/>
+								<attribute xpath="../../nm:identifikator/nm:idVerze" xmlValue="false" name="idVerze" type="INTEGER"/>
+								<attribute xpath="nm:datovaSchranka" xmlValue="false" name="datovaSchranka" type="STRING"/>
+								<attribute xpath="nm:nazev" xmlValue="false" name="nazev" type="STRING"/>
+								<attribute xpath="nm:ico" xmlValue="false" name="ico" type="STRING"/>
+								<attribute xpath="nm:adresa" xmlValue="false" name="adresa" type="STRING"/>
+								<attribute xpath="nm:prijemce" xmlValue="false" name="prijemce" type="STRING"/>
+							</attributes>
+						</recordsOutput>
+						<recordsOutput rowsRootXPath="nm:prilohy/nm:priloha" out="attach">
+							<attributes>
+								<attribute xpath="../../nm:identifikator/nm:idSmlouvy" xmlValue="false" name="idSmlouvy" type="INTEGER"/>
+								<attribute xpath="../../nm:identifikator/nm:idVerze" xmlValue="false" name="idVerze" type="INTEGER"/>
+								<attribute xpath="nm:nazevSouboru" xmlValue="false" name="nazevSouboru" type="STRING"/>
+								<attribute xpath="nm:hash" xmlValue="false" name="hash" type="STRING"/>
+								<attribute xpath="nm:odkaz" xmlValue="false" name="odkaz" type="STRING"/>
+								<attribute xpath="nm:hash/@algoritmus" xmlValue="false" name="hash_alg" type="STRING"/>
+							</attributes>
+						</recordsOutput>
+					</recordsOutputs>
+				</recordsOutput>
+			</recordsOutputs>
+		</properties>
+		<visual-constraints layout="vertical" bounds="240,24,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="attach" step="registr_xml_parse"/>
+		<target endpoint="in" step="attachmentRecord"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="456,72"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="cParty" step="registr_xml_parse"/>
+		<target endpoint="in" step="contractPartyRecord"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="reg" step="registr_xml_parse"/>
+		<target endpoint="in" step="registryRecord"/>
+		<visual-constraints>
+			<bendpoints>
+				<point location="48,72"/>
+			</bendpoints>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (registryRecord) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="registryRecord">
+		<properties writeHeader="true" fileName="../data/out/registryRecord.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="true" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns/>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="24,216,-1,-1"/>
+	</step>
+
+
+
+<modelComment backgroundColor="255,255,180" borderColor="183,183,0" bounds="600,0,867,744" foregroundColor="51,51,51">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ASCII&quot;?&gt;
+&lt;dump xmlns=&quot;http://portal.gov.cz/rejstriky/ISRS/1.2/&quot;&gt;
+	&lt;mesic&gt;07&lt;/mesic&gt;
+	&lt;rok&gt;2016&lt;/rok&gt;
+	&lt;casGenerovani&gt;2018-01-23T00:06:02+01:00&lt;/casGenerovani&gt;
+	&lt;dokoncenyMesic&gt;1&lt;/dokoncenyMesic&gt;
+	&lt;zaznam&gt;
+		&lt;identifikator&gt;
+			&lt;idSmlouvy&gt;9&lt;/idSmlouvy&gt;
+			&lt;idVerze&gt;9&lt;/idVerze&gt;
+		&lt;/identifikator&gt;
+		&lt;odkaz&gt;https://smlouvy.gov.cz/smlouva/9&lt;/odkaz&gt;
+		&lt;casZverejneni&gt;2016-07-01T01:17:36+02:00&lt;/casZverejneni&gt;
+		&lt;smlouva&gt;
+			&lt;subjekt&gt;
+				&lt;datovaSchranka&gt;c5kbvkw&lt;/datovaSchranka&gt;
+				&lt;nazev&gt;Liberecky kraj&lt;/nazev&gt;
+				&lt;ico&gt;70891508&lt;/ico&gt;
+				&lt;adresa&gt;U Jezu 642/2a, 46001 Liberec, CZ&lt;/adresa&gt;
+			&lt;/subjekt&gt;
+			&lt;smluvniStrana&gt;
+				&lt;datovaSchranka&gt;sxk8tap&lt;/datovaSchranka&gt;
+				&lt;nazev&gt;GORDIC spol. s r.o.&lt;/nazev&gt;
+				&lt;ico&gt;47903783&lt;/ico&gt;
+				&lt;adresa&gt;Erbenova 2108/4, 58601, Jihlava, Jihlava&lt;/adresa&gt;
+				&lt;prijemce&gt;1&lt;/prijemce&gt;
+			&lt;/smluvniStrana&gt;
+			&lt;predmet&gt;rozsireni jadra IS Ginis o funkcionalitu zverejnovani smluv&lt;/predmet&gt;
+			&lt;datumUzavreni&gt;2016-06-30&lt;/datumUzavreni&gt;
+			&lt;cisloSmlouvy&gt;12-OBJ/893/2016&lt;/cisloSmlouvy&gt;
+			&lt;schvalil&gt;Ing. Pavel Tvrznik&lt;/schvalil&gt;
+			&lt;hodnotaBezDph&gt;80000&lt;/hodnotaBezDph&gt;
+		&lt;/smlouva&gt;
+		&lt;prilohy&gt;
+			&lt;priloha&gt;
+				&lt;nazevSouboru&gt;893_Gordic.pdf&lt;/nazevSouboru&gt;
+				&lt;hash algoritmus=&quot;sha256&quot;&gt;a407edf283dd009c4a0f580b44c1baf191563d44629c927331802f6263c0d299&lt;/hash&gt;
+				&lt;odkaz&gt;https://smlouvy.gov.cz/smlouva/soubor/5/893_Gordic.pdf&lt;/odkaz&gt;
+			&lt;/priloha&gt;
+		&lt;/prilohy&gt;
+		&lt;platnyZaznam&gt;1&lt;/platnyZaznam&gt;
+	&lt;/zaznam&gt;
+&lt;/dump&gt;</modelComment>
+
+</purity-config>

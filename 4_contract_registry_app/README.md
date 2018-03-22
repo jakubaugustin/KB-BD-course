@@ -168,6 +168,10 @@ To tune performance, you can use:
 Monitoring Spark job via backend
 ![spark backend](spark-backend.png)
 
+
+## Parsing XMLs wit Ataccama BDE
+![BDE XML parser plan](bde-xml-parser.png)
+
 ## Creating Metastore tables
 
 ### With parquet tables
@@ -202,6 +206,8 @@ show column stats stg_contract_party;
 ```
 
 ### With CSV tables
+
+When creating external tables on secured cluster you must ensure that impala has read and execute acess for the table data. Otherwise create query will fail.
 
 ```sql
 CREATE EXTERNAL TABLE stg_attachments (   

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dump xmlns="http://portal.gov.cz/rejstriky/ISRS/1.2/">
+	<mesic>07</mesic>
+	<rok>2016</rok>
+	<casGenerovani>2018-01-23T00:06:02+01:00</casGenerovani>
+	<dokoncenyMesic>1</dokoncenyMesic>
+	<zaznam>
+		<identifikator>
+			<idSmlouvy>9</idSmlouvy>
+			<idVerze>9</idVerze>
+		</identifikator>
+		<odkaz>https://smlouvy.gov.cz/smlouva/9</odkaz>
+		<casZverejneni>2016-07-01T01:17:36+02:00</casZverejneni>
+		<smlouva>
+			<subjekt>
+				<datovaSchranka>c5kbvkw</datovaSchranka>
+				<nazev>Liberecky kraj</nazev>
+				<ico>70891508</ico>
+				<adresa>U Jezu 642/2a, 46001 Liberec, CZ</adresa>
+			</subjekt>
+			<smluvniStrana>
+				<datovaSchranka>sxk8tap</datovaSchranka>
+				<nazev>GORDIC spol. s r.o.</nazev>
+				<ico>47903783</ico>
+				<adresa>Erbenova 2108/4, 58601, Jihlava, Jihlava</adresa>
+				<prijemce>1</prijemce>
+			</smluvniStrana>
+			<predmet>rozsireni jadra IS Ginis o funkcionalitu zverejnovani smluv</predmet>
+			<datumUzavreni>2016-06-30</datumUzavreni>
+			<cisloSmlouvy>12-OBJ/893/2016</cisloSmlouvy>
+			<schvalil>Ing. Pavel Tvrznik</schvalil>
+			<hodnotaBezDph>80000</hodnotaBezDph>
+		</smlouva>
+		<prilohy>
+			<priloha>
+				<nazevSouboru>893_Gordic.pdf</nazevSouboru>
+				<hash algoritmus="sha256">a407edf283dd009c4a0f580b44c1baf191563d44629c927331802f6263c0d299</hash>
+				<odkaz>https://smlouvy.gov.cz/smlouva/soubor/5/893_Gordic.pdf</odkaz>
+			</priloha>
+		</prilohy>
+		<platnyZaznam>1</platnyZaznam>
+	</zaznam>
+</dump>
