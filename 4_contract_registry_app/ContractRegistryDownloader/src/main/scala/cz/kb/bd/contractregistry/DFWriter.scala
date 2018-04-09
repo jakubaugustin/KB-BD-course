@@ -27,7 +27,7 @@ object DFWriter {
 	private def writeDataFrameAsCSV(df: Dataset[Row], path: String, numPartitions : Int = 1) : Unit = {
 		try {
 			df
-				.repartition(numPartitions)
+				//.repartition(numPartitions)
 				.write
 				.mode(SaveMode.Overwrite)
 				.format("com.databricks.spark.csv")
